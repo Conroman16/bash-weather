@@ -1,0 +1,13 @@
+ensure_cache_path(){
+        mkdir -p `dirname $cache_file`
+        touch $cache_file
+}
+cache_weather(){
+	ensure_cache_path
+        echo `curl -s $wttr_url` > $cache_file
+	chmod 777 $cache_file
+}
+clear_cache(){
+	ensure_cache_path
+	rm -f $cache_file
+}
