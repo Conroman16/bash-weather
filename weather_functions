@@ -4,7 +4,11 @@ ensure_cache_path(){
 }
 cache_weather(){
 	ensure_cache_path
-        echo `curl -s $wttr_url` > $cache_file
+        wx_res=$(curl -s $wttr_url | sed "s/$wind_icon//g" | sed 's/\ mph/mph/')
+	for arrow in ${arrows[@]}; do
+		wx_res=$(echo $wx_res | sed "s/$arrow/$arrow\ /g")
+	done
+	echo $wx_res > $cache_file
 	chmod 777 $cache_file
 }
 clear_cache(){
