@@ -1,4 +1,6 @@
 wttr_location=10001						# Any location string wttr.in will take (ex: https://wttr.in/lax)
-cache_file=/tmp/weather/shortwx_cache				# Location where the local weather cache file should be stored
 wttr_format=2							# Wttr.in weather response format (1-4)
 wttr_url="https://wttr.in/$wttr_location?format=$wttr_format"	# You probably don't need to chagne this
+cache_file=/tmp/weather/shortwx_cache                           # Location where the local weather cache file should be stored
+arrows=('↓' '↙' '←' '↖' '↑' '↗' '→' '↘')
+wind_icon=("🌬️ ")
