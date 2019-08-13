@@ -3,4 +3,5 @@ wttr_format=2							# Wttr.in weather response format (1-4)
 wttr_url="https://wttr.in/$wttr_location?format=$wttr_format"	# You probably don't need to chagne this
 cache_file=/tmp/weather/shortwx_cache                           # Location where the local weather cache file should be stored
 arrows=('↓' '↙' '←' '↖' '↑' '↗' '→' '↘')
-wind_icon=("🌬️ ")
+b64_wind_icon='8J+MrO+4jw=='					# Base64 here because GitHub was rejecting the unencoded icon because it thought it was an email address
+export wind_icon="$(printf $b64_wind_icon | base64 -d -)"
