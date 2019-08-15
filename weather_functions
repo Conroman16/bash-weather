@@ -8,7 +8,7 @@ cache_weather(){
 	for arrow in ${arrows[@]}; do
 		wx_res=$(echo $wx_res | sed "s/$arrow/$arrow\ /g")
 	done
-	echo $wx_res > $cache_file
+	[[ ! "$wx_res" =~ ^(Sorry|Unknown)* ]] && echo "$wx_res" > $cache_file
 	chmod 777 $cache_file
 }
 clear_cache(){
